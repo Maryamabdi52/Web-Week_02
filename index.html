@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hami MiniMarket - Fresh. Local. Trusted.</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>Hami MiniMarket</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#products" class="nav-link">Products</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="cart-counter" id="cartCounter" style="display: block; visibility: visible; opacity: 1;">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge" id="cartBadge"></span>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Fresh. Local. Trusted.</h1>
+            <p class="hero-subtitle">Discover the finest selection of fresh fruits and vegetables at Hami MiniMarket</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Shop Now</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            
+               <img src="picture2.jpg" alt="Fresh colorful fruits and vegetables">
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Our Fresh Products</h2>
+            <p class="section-subtitle">Handpicked fruits and vegetables delivered fresh to your community</p>
+            
+            <!-- Filter Controls -->
+            <div class="product-filters">
+                <div class="filter-group">
+                    <input type="text" id="productSearch" class="search-input" placeholder="Search products...">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <div class="filter-group">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="all">All Categories</option>
+                        <option value="Fruit">Fruits</option>
+                        <option value="Vegetable">Vegetables</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <select id="priceFilter" class="filter-select">
+                        <option value="all">All Prices</option>
+                        <option value="1">Under $1</option>
+                        <option value="2">Under $2</option>
+                        <option value="3">Under $3</option>
+                        <option value="5">Under $5</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <button id="clearFilters" class="btn btn-secondary">
+                        <i class="fas fa-undo"></i> Clear
+                    </button>
+                </div>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card" data-name="apples" data-category="Fruit" data-price="2.99" data-id="1">
+                    <div class="product-image">
+                        <img src="picture9.jpg" alt="Fresh Apples">
+                    </div>
+                    <div class="product-info">
+                        <h3>Apples</h3>
+                        <p>Crisp, juicy apples perfect for snacking, baking, or juicing.</p>
+                        <div class="price-category">
+                            <span class="price">$2.99</span>
+                            <span class="product-category">Fruit</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(1)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="carrots" data-category="Vegetable" data-price="1.99" data-id="2">
+                    <div class="product-image">
+                        <img src="picture3.jpg" alt="Organic Carrots">
+                    </div>
+                    <div class="product-info">
+                        <h3>Carrots</h3>
+                        <p>Sweet, crunchy carrots. Great for salads.</p>
+                        <div class="price-category">
+                            <span class="price">$1.99</span>
+                            <span class="product-category">Vegetable</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(2)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="bananas" data-category="Fruit" data-price="0.99" data-id="3">
+                    <div class="product-image">
+                        <img src="picture4.jpg" alt="Fresh Bananas">
+                    </div>
+                    <div class="product-info">
+                        <h3>Bananas</h3>
+                        <p>Sweet bananas. Perfect for breakfast.</p>
+                        <div class="price-category">
+                            <span class="price">$0.99</span>
+                            <span class="product-category">Fruit</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(3)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="tomatoes" data-category="Vegetable" data-price="3.49" data-id="4">
+                    <div class="product-image">
+                        <img src="picture5.jpg" alt="Fresh Tomatoes">
+                    </div>
+                    <div class="product-info">
+                        <h3>Tomatoes</h3>
+                        <p>Juicy, ripe tomatoes. Great for salads.</p>
+                        <div class="price-category">
+                            <span class="price">$3.49</span>
+                            <span class="product-category">Vegetable</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(4)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="broccoli" data-category="Vegetable" data-price="1.49" data-id="5">
+                    <div class="product-image">
+                        <img src="picture6.jpg" alt="Fresh Broccoli">
+                    </div>
+                    <div class="product-info">
+                        <h3>Broccoli</h3>
+                        <p>Fresh broccoli. Rich in vitamins.</p>
+                        <div class="price-category">
+                            <span class="price">$1.49</span>
+                            <span class="product-category">Vegetable</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(5)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="watermelon" data-category="Fruit" data-price="2.49" data-id="6">
+                    <div class="product-image">
+                        <img src="picture7.jpg" alt="Fresh Watermelon">
+                    </div>
+                    <div class="product-info">
+                        <h3>Watermelon</h3>
+                        <p>Refreshing watermelon. Sweet and juicy.</p>
+                        <div class="price-category">
+                            <span class="price">$2.49</span>
+                            <span class="product-category">Fruit</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(6)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="oranges" data-category="Fruit" data-price="3.99" data-id="7">
+                    <div class="product-image">
+                        <img src="picture10.jpg" alt="Mango">
+                    </div>
+                    <div class="product-info">
+                        <h3>Mango</h3>
+                        <p>Sweet, juicy mangoes packed with tropical flavor.</p>
+                        <div class="price-category">
+                            <span class="price">$5.99</span>
+                            <span class="product-category">Fruit</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(7)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="onion" data-category="Vegetable" data-price="1.99" data-id="8">
+                    <div class="product-image">
+                        <img src="picture11.jpg" alt="Fresh Onion">
+                    </div>
+                    <div class="product-info">
+                        <h3>Onion</h3>
+                        <p>Crisp, fresh onions for salads, stews, and sautéing.</p>
+                        <div class="price-category">
+                            <span class="price">$1.99</span>
+                            <span class="product-category">Vegetable</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(8)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About Hami MiniMarket</h2>
+                    <p>Welcome to Hami MiniMarket, your neighborhood's trusted source for fresh, locally-sourced fruits and vegetables. We believe in bringing the community together through quality produce and exceptional service.</p>
+                    <p>Our mission is simple: to provide fresh, nutritious, and affordable produce while supporting local farmers and growers. Every item in our market is carefully selected to ensure the highest quality and freshness for you and your family.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-truck"></i>
+                            <h3>Fresh Delivery</h3>
+                            <p>Daily deliveries ensure maximum freshness</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-leaf"></i>
+                            <h3>Local Sourcing</h3>
+                            <p>Supporting local farmers and communities</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-heart"></i>
+                            <h3>Quality Guarantee</h3>
+                            <p>100% satisfaction guaranteed on all products</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                   
+                     <img src="picture8.jpg" alt="Hami MiniMarket store">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Have questions or want to place an order? We'd love to hear from you!</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Visit Us</h3>
+                            <p>Somalia<br>Mugdisho, Wartanabada</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Call Us</h3>
+                            <p>(+252) 61-1-63-52-73</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email Us</h3>
+                            <p>maryamabdimohamed63@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                 
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <span class="error-message" id="messageError"></span>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-leaf"></i>
+                        <span>Hami MiniMarket</span>
+                    </div>
+                    <p>Fresh. Local. Trusted. Your neighborhood's source for quality produce.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/mariam.miimi.2025/" aria-label="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/mariza_abdi/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/maryamabdi-mohamed-675a91375/" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hami MiniMarket. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
