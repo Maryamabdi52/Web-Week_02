@@ -306,91 +306,11 @@ function initProductFilters() {
 // Initialize product filters when page loads
 document.addEventListener('DOMContentLoaded', () => {
     initProductFilters();
-    updateCartDisplay();
 });
 
-// Cart functionality
-let cart = [];
-
-// Load cart from localStorage
-function loadCart() {
-    const savedCart = localStorage.getItem('cart');
-    if (savedCart) {
-        cart = JSON.parse(savedCart);
-    }
-}
-
-// Save cart to localStorage
-function saveCart() {
-    localStorage.setItem('cart', JSON.stringify(cart));
-}
-
-// Update cart display
-function updateCartDisplay() {
-    const cartBadge = document.getElementById('cartBadge');
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    
-    if (cartBadge) {
-        if (totalItems > 0) {
-            cartBadge.textContent = totalItems;
-        } else {
-            cartBadge.textContent = '';
-        }
-    }
-}
-
-// Add product to cart
+// Cart functionality - now using modular cart.js
+// This function is called from HTML onclick handlers
 function addToCart(productId) {
-    const productCard = document.querySelector(`[data-id="${productId}"]`);
-    
-    if (!productCard) return;
-    
-    const productName = productCard.querySelector('h3').textContent;
-    const productPrice = parseFloat(productCard.getAttribute('data-price'));
-    const productCategory = productCard.getAttribute('data-category');
-    const productImage = productCard.querySelector('img').src;
-    
-    const existingItem = cart.find(item => item.id === productId);
-    
-    if (existingItem) {
-        existingItem.quantity += 1;
-    } else {
-        cart.push({
-            id: productId,
-            name: productName,
-            price: productPrice,
-            category: productCategory,
-            image: productImage,
-            quantity: 1
-        });
-    }
-    
-    saveCart();
-    updateCartDisplay();
-    showCartNotification();
+    cart.addItem(productId);
+    cart.openCartModal(); // Open cart modal when adding item
 }
-
-// Show cart notification
-function showCartNotification() {
-    const notification = document.createElement('div');
-    notification.className = 'cart-notification';
-    notification.innerHTML = `
-        <i class="fas fa-check-circle"></i>
-        <span>Item added to cart!</span>
-    `;
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.classList.add('show');
-    }, 10);
-    
-    setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
-    }, 2000);
-}
-
-// Initialize cart on load
-loadCart();

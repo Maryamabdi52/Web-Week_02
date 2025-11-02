@@ -23,7 +23,7 @@
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
-                <div class="cart-counter" id="cartCounter" style="display: block; visibility: visible; opacity: 1;">
+                <div class="cart-counter" id="cartCounter" onclick="cart.toggleCartModal()" style="display: block; visibility: visible; opacity: 1;">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-badge" id="cartBadge"></span>
                 </div>
@@ -357,6 +357,36 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-overlay" onclick="cart.closeCartModal()"></div>
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h2>Your Cart</h2>
+                <button class="close-cart-btn" onclick="cart.closeCartModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-modal-body">
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items will be rendered here -->
+                </div>
+            </div>
+            <div class="cart-modal-footer">
+                <div class="cart-summary" id="cartSummary">
+                    <!-- Cart summary will be rendered here -->
+                </div>
+                <button class="btn btn-secondary clear-cart-btn" onclick="cart.clearCart()">
+                    <i class="fas fa-trash-alt"></i> Clear Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load Modular JS -->
+    <script src="js/storage.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/cart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

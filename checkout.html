@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Hami MiniMarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>Hami MiniMarket</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#products" class="nav-link">Products</a></li>
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="cart-counter" onclick="cart.toggleCartModal()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge" id="cartBadge"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Checkout Content -->
+    <div class="checkout-container">
+        <div class="checkout-header">
+            <h1><i class="fas fa-receipt"></i> Order Summary</h1>
+            <p>Review your order before confirming</p>
+        </div>
+
+        <div class="success-message" id="successMessage">
+            <i class="fas fa-check-circle"></i>
+            <h2>Order Confirmed!</h2>
+            <p>Thank you for your purchase. Your order has been received.</p>
+            <a href="index.html" class="btn btn-primary" style="margin-top: 1rem;">Continue Shopping</a>
+        </div>
+
+        <div class="checkout-content" id="checkoutContent">
+            <!-- Order Items -->
+            <div class="order-items-section">
+                <h2><i class="fas fa-box"></i> Your Order</h2>
+                <div class="order-items" id="orderItems">
+                    <!-- Order items will be rendered here -->
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary-section">
+                <h2><i class="fas fa-calculator"></i> Summary</h2>
+                <div class="order-summary-details" id="orderSummaryDetails">
+                    <!-- Order summary will be rendered here -->
+                </div>
+                <button class="btn btn-primary confirm-order-btn" onclick="checkout.confirmOrder()">
+                    <i class="fas fa-check"></i> Confirm Order
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-overlay" onclick="cart.closeCartModal()"></div>
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h2>Your Cart</h2>
+                <button class="close-cart-btn" onclick="cart.closeCartModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-modal-body">
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items will be rendered here -->
+                </div>
+            </div>
+            <div class="cart-modal-footer">
+                <div class="cart-summary" id="cartSummary">
+                    <!-- Cart summary will be rendered here -->
+                </div>
+                <button class="btn btn-secondary clear-cart-btn" onclick="cart.clearCart()">
+                    <i class="fas fa-trash-alt"></i> Clear Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load Modular JS -->
+    <script src="js/storage.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>
+
